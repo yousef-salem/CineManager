@@ -57,7 +57,7 @@ public class MovieServiceImpl implements MovieService {
         List<Movie> moviesToSave = new ArrayList<>();
 
         for (String id : bulkMovieDto.getIds()) {
-            // Fetch movie data from external API
+
             Movie movie = omdbService.getMovieDetails(id); ;
             if (movie != null) {
                 moviesToSave.add(movie);

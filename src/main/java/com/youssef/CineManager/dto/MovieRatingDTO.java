@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 public class MovieRatingDTO {
     private Long userId;
     private String movieId;
-    private Integer rating; // null if just updating like/dislike
-    private Boolean liked; // null if just updating rating
+    private Integer rating;
+    private Boolean liked;
 }

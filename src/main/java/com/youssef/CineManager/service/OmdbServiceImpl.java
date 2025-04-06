@@ -65,7 +65,7 @@ public class OmdbServiceImpl implements OmdbService {
         ResponseEntity<Map> response = restTemplate.getForEntity(url, Map.class);
         Map<String, Object> movieData = response.getBody();
 
-        // Forward the response directly
+
         return movieUtil.extractMovieFromResponse(movieData);
     }
 }

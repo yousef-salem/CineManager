@@ -9,7 +9,6 @@ public class SearchResult {
     private String totalResults;
     private String response;
 
-    // Getters and setters
     public List<MovieDTO> getSearch() {
         return search;
     }

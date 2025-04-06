@@ -50,7 +50,7 @@ public class GlobalExceptionHandler {
         ApiResponse<Object> response = new ApiResponse<>(
                 false,
                 errorDetails,
-                ex.getErrorMessage() // This will be the "message" in your response
+                ex.getErrorMessage()
         );
 
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);

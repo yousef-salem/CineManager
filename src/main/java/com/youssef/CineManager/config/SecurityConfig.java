@@ -88,7 +88,7 @@ public class SecurityConfig {
                                 .anyRequest().authenticated()
                 );
 
-        // For H2 Console
+
         http.headers(headers -> headers.frameOptions(frameOption -> frameOption.sameOrigin()));
 
         http.authenticationProvider(authenticationProvider());

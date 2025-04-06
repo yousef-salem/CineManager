@@ -25,7 +25,7 @@ public class ApiResponse<T> {
         this.data = null;
     }
 
-    // Getters and setters
+
 
     public boolean isSuccess() {
         return success;

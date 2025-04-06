@@ -28,7 +28,7 @@ public class DataBaseConfig {
     @Bean
     public CommandLineRunner initDatabase(RoleRepository roleRepository, UserRepository userRepository) {
         return args -> {
-            // Initialize roles if they don't exist
+
             Role userRole = null;
             Role adminRole = null;
 
@@ -50,7 +50,7 @@ public class DataBaseConfig {
                         .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
             }
 
-            // Create a default admin user if not exists
+
             if (!userRepository.existsByUsername("admin")) {
                 User admin = new User(
                         "admin",

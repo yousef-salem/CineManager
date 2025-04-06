@@ -56,7 +56,7 @@ public class MovieUtil {
             movie.setWebsite((String) movieData.get("Website"));
             movie.setResponse((String) movieData.get("Response"));
 
-            // Process ratings
+
             List<Rating> ratings = new ArrayList<>();
             if (movieData.containsKey("Ratings") && movieData.get("Ratings") instanceof List) {
                 List<Map<String, String>> ratingsData = (List<Map<String, String>>) movieData.get("Ratings");
@@ -79,11 +79,11 @@ public class MovieUtil {
         if (searchData != null && "True".equals(searchData.get("Response"))) {
             SearchResult result = new SearchResult();
 
-            // Set total results
+
             result.setTotalResults((String) searchData.get("totalResults"));
             result.setResponse((String) searchData.get("Response"));
 
-            // Process search results
+
             List<MovieDTO> movies = new ArrayList<>();
             if (searchData.containsKey("Search") && searchData.get("Search") instanceof List) {
                 List<Map<String, String>> moviesData = (List<Map<String, String>>) searchData.get("Search");
