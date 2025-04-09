@@ -1,35 +1,17 @@
 package com.youssef.CineManager.model;
 
 import com.youssef.CineManager.dto.MovieDTO;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class SearchResult {
+@Setter
+@Getter
+public class SearchResult implements Serializable {
     private List<MovieDTO> search;
     private String totalResults;
     private String response;
 
-    public List<MovieDTO> getSearch() {
-        return search;
-    }
-
-    public void setSearch(List<MovieDTO> search) {
-        this.search = search;
-    }
-
-    public String getTotalResults() {
-        return totalResults;
-    }
-
-    public void setTotalResults(String totalResults) {
-        this.totalResults = totalResults;
-    }
-
-    public String getResponse() {
-        return response;
-    }
-
-    public void setResponse(String response) {
-        this.response = response;
-    }
 }

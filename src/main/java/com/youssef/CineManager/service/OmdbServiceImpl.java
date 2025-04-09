@@ -6,6 +6,7 @@ import com.youssef.CineManager.model.SearchResult;
 import com.youssef.CineManager.util.MovieUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -34,8 +35,8 @@ public class OmdbServiceImpl implements OmdbService {
     public OmdbServiceImpl() {
         this.restTemplate = new RestTemplate();
     }
-
-
+    @Cacheable(value = "TTL24H", key = "'SearchMovies:' + #query + ':' + #page + ':' + #year")
+    @Override
     public SearchResult searchMovies(String query, Integer page, Integer year) {
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(apiUrl)
                 .queryParam("type", "movie")
@@ -55,6 +56,7 @@ public class OmdbServiceImpl implements OmdbService {
        return movieUtil.extractSearchResultFromResponse(searchData);
     }
 
+    @Cacheable(value = "TTL24H", key = "'MovieDetails:' + #imdbId")
     @Override
     public Movie getMovieDetails(String imdbId) {
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(apiUrl)
